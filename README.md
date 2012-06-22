@@ -8,7 +8,7 @@
 </tr>
 <tr>
 <td>Description</td>
-<td>NOTHING HERE YET</td>
+<td>XML-JSON translation</td>
 </tr>
 <tr>
 <td>Node Version</td>
