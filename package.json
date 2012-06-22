@@ -1,18 +1,20 @@
 {
-   "name":"APPNAME",
-   "description":"Nothing here yet",
-   "version":"0.0.1",
-   "homepage":"http://github.com/wearefractal/APPNAME",
-   "repository":"git://github.com/wearefractal/APPNAME.git",
+   "name":"xmlson",
+   "description":"XML<->JSON translation",
+   "version":"0.0.3",
+   "homepage":"http://github.com/wearefractal/xmlson",
+   "repository":"git://github.com/wearefractal/xmlson.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
    "main":"./index.js",
    
    "dependencies":{
-      "coffee-script":"*"
+      "coffee-script":"*",
+      "ltx":"*"
    },
    "devDependencies":{
       "mocha":"*",
-      "should":"*"
+      "should":"*",
+      "benchmark":"*"
    },
    "scripts":{
       "test":"mocha --compilers coffee:coffee-script"
@@ -23,7 +25,7 @@
    "licenses":[
       {
          "type":"MIT",
-         "url":"http://github.com/wearefractal/APPNAME/raw/master/LICENSE"
+         "url":"http://github.com/wearefractal/xmlson/raw/master/LICENSE"
       }
    ]
 }

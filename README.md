@@ -1,10 +1,10 @@
-![status](https://secure.travis-ci.org/wearefractal/APPNAME.png?branch=master)
+![status](https://secure.travis-ci.org/wearefractal/xmlson.png?branch=master)
 
 ## Information
 
 <table>
 <tr> 
-<td>Package</td><td>APPNAME</td>
+<td>Package</td><td>xmlson</td>
 </tr>
 <tr>
 <td>Description</td>
@@ -16,10 +16,45 @@
 </tr>
 </table>
 
+## Dependencies
+
+xmlson uses ltx which uses libexpat - a super fast native XML parser. You may need to install it if your OS does not have it installed already.
+
+```
+$ sudo apt-get install libexpat1 libexpat1-dev
+```
+
 ## Usage
 
 ```coffee-script
-NOTHING HERE YET
+xmlson = require 'xmlson'
+
+myObject = xmlson.toJSON('<cool><whatever name="ya"/></cool>');
+# myObject = {cool:{whatever:[{"@name":"ya"}]}
+
+myString = xmlson.toXML({cool:{whatever:[{"@name":"ya"}]});
+# myString = <cool><whatever name="ya"/></cool>
+```
+
+## Benchmarks
+
+These were done on a laptop with an i7 - you will probably get much better results on an actual server.
+
+Summary: 
+
+A complex JSON object can be turned into an XML string in 0.0046ms (avg)
+
+A complex XML string can be turned into a JSON object in 0.0016ms (avg)
+
+```
+xmlson.toJSON(tiny) x 36,903 ops/sec ±5.34% (50 runs sampled)
+xmlson.toJSON(simple) x 29,429 ops/sec ±3.82% (51 runs sampled)
+xmlson.toJSON(standard) x 12,098 ops/sec ±2.30% (53 runs sampled)
+xmlson.toJSON(complex) x 12,932 ops/sec ±1.85% (54 runs sampled)
+xmlson.toXML(tiny) x 2,034,542 ops/sec ±4.60% (60 runs sampled)
+xmlson.toXML(simple) x 230,857 ops/sec ±0.26% (63 runs sampled)
+xmlson.toXML(standard) x 62,608 ops/sec ±1.38% (62 runs sampled)
+xmlson.toXML(complex) x 36,974 ops/sec ±0.87% (60 runs sampled)
 ```
 
 ## LICENSE
