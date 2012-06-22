@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>xmlson by wearefractal</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>xmlson</h1>
+        <p>XML/JSON conversion</p>
+
+        <p class="view"><a href="https://github.com/wearefractal/xmlson">View the Project on GitHub <small>wearefractal/xmlson</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/wearefractal/xmlson/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/wearefractal/xmlson/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/wearefractal/xmlson">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><img src="https://secure.travis-ci.org/wearefractal/xmlson.png?branch=master" alt="status"></p>
+
+<h2>Information</h2>
+
+<table>
+<tr>
+<td>Package</td>
+<td>xmlson</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>XML-JSON translation</td>
+</tr>
+<tr>
+<td>Node Version</td>
+<td>&gt;= 0.4</td>
+</tr>
+</table><h2>Dependencies</h2>
+
+<p>xmlson uses ltx which uses libexpat - a super fast native XML parser. You may need to install it if your OS does not have it installed already.</p>
+
+<pre><code>$ sudo apt-get install libexpat1 libexpat1-dev
+</code></pre>
+
+<h2>Usage</h2>
+
+<div class="highlight">
+<pre><span class="nv">xmlson = </span><span class="nx">require</span> <span class="s">'xmlson'</span>
+
+<span class="nv">myObject = </span><span class="nx">xmlson</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">(</span><span class="s">'&lt;cool&gt;&lt;whatever name="ya"/&gt;&lt;/cool&gt;'</span><span class="p">);</span>
+<span class="c1"># myObject = {cool:{whatever:[{"@name":"ya"}]}</span>
+
+<span class="nv">myString = </span><span class="nx">xmlson</span><span class="p">.</span><span class="nx">toXML</span><span class="p">({</span><span class="nx">cool</span><span class="o">:</span><span class="p">{</span><span class="nx">whatever</span><span class="o">:</span><span class="p">[{</span><span class="s">"@name"</span><span class="o">:</span><span class="s">"ya"</span><span class="p">}]});</span>
+<span class="c1"># myString = &lt;cool&gt;&lt;whatever name="ya"/&gt;&lt;/cool&gt;</span>
+</pre>
+</div>
+
+
+<h2>Benchmarks</h2>
+
+<p>These were done on a laptop with an i7 - you will probably get much better results on an actual server.</p>
+
+<p>Summary: </p>
+
+<p>A complex JSON object can be turned into an XML string in 0.0046ms (avg)</p>
+
+<p>A complex XML string can be turned into a JSON object in 0.0016ms (avg)</p>
+
+<pre><code>xmlson.toJSON(tiny) x 36,903 ops/sec ±5.34% (50 runs sampled)
+xmlson.toJSON(simple) x 29,429 ops/sec ±3.82% (51 runs sampled)
+xmlson.toJSON(standard) x 12,098 ops/sec ±2.30% (53 runs sampled)
+xmlson.toJSON(complex) x 12,932 ops/sec ±1.85% (54 runs sampled)
+xmlson.toXML(tiny) x 2,034,542 ops/sec ±4.60% (60 runs sampled)
+xmlson.toXML(simple) x 230,857 ops/sec ±0.26% (63 runs sampled)
+xmlson.toXML(standard) x 62,608 ops/sec ±1.38% (62 runs sampled)
+xmlson.toXML(complex) x 36,974 ops/sec ±0.87% (60 runs sampled)
+</code></pre>
+
+<h2>LICENSE</h2>
+
+<p>(MIT License)</p>
+
+<p>Copyright (c) 2012 Fractal <a href="mailto:contact@wearefractal.com">contact@wearefractal.com</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/wearefractal">wearefractal</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
