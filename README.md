@@ -56,9 +56,9 @@ These were done on a laptop with an i7 - you will probably get much better resul
 
 Summary: 
 
-A complex JSON object can be turned into an XML string in 0.0046ms (avg)
+A complex JSON object can be turned into an XML string in 0.052ms (avg)
 
-A complex XML string can be turned into a JSON object in 0.0016ms (avg)
+A complex XML string can be turned into a JSON object in 0.015ms (avg)
 
 ```
 xmlson.toJSON(tiny) x 36,903 ops/sec ±5.34% (50 runs sampled)
