@@ -37,7 +37,13 @@ describe 'toXML()', ->
     output = xmlson.toXML input
     should.exist output
     output.should.eql expected
-    done()
+
+    xmlson.toXML input, (err, res) ->
+      should.not.exist err
+      should.exist res
+      res.should.eql expected
+      done()
+
   it 'complex', (done) ->
     expected = '<iq id="123456" type="set" to="call57@test.net/1" from="9001@cool.com/1"><say xmlns="urn:xmpp:tropo:say:1" voice="allison"><audio src="http://acme.com/greeting.mp3">Thanks for calling ACME company</audio><audio src="http://acme.com/package-shipped.mp3">Your package was shipped on</audio><say-as interpret-as="date">12/01/2011</say-as></say></iq>'
     input = 
@@ -71,4 +77,9 @@ describe 'toXML()', ->
     output = xmlson.toXML input
     should.exist output
     output.should.equal expected
-    done()
+    
+    xmlson.toXML input, (err, res) ->
+      should.not.exist err
+      should.exist res
+      res.should.eql expected
+      done()

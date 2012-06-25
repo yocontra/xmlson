@@ -26,14 +26,28 @@ $ sudo apt-get install libexpat1 libexpat1-dev
 
 ## Usage
 
+### Synchronous
+
 ```coffee-script
 xmlson = require 'xmlson'
 
-myObject = xmlson.toJSON('<cool><whatever name="ya"/></cool>');
+myObject = xmlson.toJSON '<cool><whatever name="ya"/></cool>'
 # myObject = {cool:{whatever:[{"@name":"ya"}]}
 
-myString = xmlson.toXML({cool:{whatever:[{"@name":"ya"}]});
+myString = xmlson.toXML {cool:{whatever:[{"@name":"ya"}]}}
 # myString = <cool><whatever name="ya"/></cool>
+```
+
+### Asynchronous
+
+```coffee-script
+xmlson = require 'xmlson'
+
+xmlson.toJSON '<cool><whatever name="ya"/></cool>', (err, myObject) ->
+  # myObject = {cool:{whatever:[{"@name":"ya"}]}
+
+xmlson.toXML {cool:{whatever:[{"@name":"ya"}]}}, (err, myString) ->
+  # myString = <cool><whatever name="ya"/></cool>
 ```
 
 ## Benchmarks

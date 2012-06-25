@@ -1,7 +1,7 @@
 {
    "name":"xmlson",
    "description":"XML<->JSON translation",
-   "version":"0.0.3",
+   "version":"0.0.4",
    "homepage":"http://github.com/wearefractal/xmlson",
    "repository":"git://github.com/wearefractal/xmlson.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
@@ -9,7 +9,8 @@
    
    "dependencies":{
       "coffee-script":"*",
-      "ltx":"*"
+      "ltx":"*",
+      "async":"*"
    },
    "devDependencies":{
       "mocha":"*",
